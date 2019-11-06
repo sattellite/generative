@@ -10,6 +10,7 @@ let useMouseCoordinates = false;
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
+  stroke(50, 180, 240);
   triangles.push(new Triangle(createVector(WIDTH / 2, HEIGHT / 2), ANGLE, START_SIZE));
 }
 
