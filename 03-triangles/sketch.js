@@ -1,5 +1,8 @@
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
+const X = WIDTH / 2;
+const Y = HEIGHT / 2;
+let WC;
 const MAX_SIZE = Math.max(WIDTH, HEIGHT) * 2;
 const GROW = 45;
 const ANGLE = 12;
@@ -11,7 +14,8 @@ let useMouseCoordinates = false;
 function setup() {
   createCanvas(WIDTH, HEIGHT);
   stroke(50, 180, 240);
-  triangles.push(new Triangle(createVector(WIDTH / 2, HEIGHT / 2), ANGLE, START_SIZE));
+  WC = createVector(X, Y);
+  triangles.push(new Triangle(WC, WC, ANGLE, START_SIZE));
 }
 
 function draw() {
@@ -32,8 +36,8 @@ function draw() {
   }
 
   toRemove.forEach(() => {
-    let x = WIDTH / 2;
-    let y = HEIGHT / 2;
+    let x = X;
+    let y = Y;
     if (useMouseCoordinates) {
       x = mouseX;
       y = mouseY;
@@ -41,6 +45,7 @@ function draw() {
     triangles.push(
       new Triangle(
         createVector(x, y),
+        WC,
         triangles[triangles.length - 1].getAngle() + ANGLE,
         START_SIZE,
       ),
@@ -48,16 +53,16 @@ function draw() {
     triangles.shift();
   });
 
-  const lastTriangle = triangles[triangles.length - 1];
-  if (lastTriangle.getSize() != START_SIZE && lastTriangle.getSize() < 1) {
-    let x = WIDTH / 2;
-    let y = HEIGHT / 2;
-    if (useMouseCoordinates) {
-      x = mouseX;
-      y = mouseY;
-    }
-    triangles.push(new Triangle(createVector(x, y), lastTriangle.getAngle() + ANGLE, START_SIZE));
-  }
+  // const lastTriangle = triangles[triangles.length - 1];
+  // if (lastTriangle.getSize() != START_SIZE && lastTriangle.getSize() < 1) {
+  //   let x = WIDTH / 2;
+  //   let y = HEIGHT / 2;
+  //   if (useMouseCoordinates) {
+  //     x = mouseX;
+  //     y = mouseY;
+  //   }
+  //   triangles.push(new Triangle(createVector(x, y), lastTriangle.getAngle() + ANGLE, START_SIZE));
+  // }
 }
 
 function mouseMoved() {

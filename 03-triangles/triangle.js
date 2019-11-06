@@ -1,7 +1,7 @@
 let PI_2 = Math.PI * 2;
 
 class Triangle {
-  constructor(pos, angle, size = 0) {
+  constructor(pos, center, angle, size = 0) {
     this.pos = pos;
     this.size = size;
     this.angle = angle;
