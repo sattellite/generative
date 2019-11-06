@@ -1,7 +1,8 @@
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 const MAX_SIZE = Math.max(WIDTH, HEIGHT) * 2;
-const GROW = 30;
+const GROW = 45;
+const ANGLE = 6;
 const START_SIZE = 0.7;
 
 let triangles = [];
@@ -9,13 +10,7 @@ let useMouseCoordinates = false;
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
-  triangles.push(new Triangle(WIDTH / 2, HEIGHT / 2, 360 / 60, START_SIZE));
-  // for (let i = 1; i < 700; i++) {
-  //   triangles.push(new Triangle(WIDTH / 2, HEIGHT / 2, (360 / 60) * i));
-  //   if (i && MAX_SIZE / i > 1) {
-  //     triangles[i].setSize(MAX_SIZE / i);
-  //   }
-  // }
+  triangles.push(new Triangle(createVector(WIDTH / 2, HEIGHT / 2), ANGLE, START_SIZE));
 }
 
 function draw() {
@@ -43,7 +38,13 @@ function draw() {
       x = mouseX;
       y = mouseY;
     }
-    triangles.push(new Triangle(x, y, triangles[triangles.length - 1].getAngle() + 6, START_SIZE));
+    triangles.push(
+      new Triangle(
+        createVector(x, y),
+        triangles[triangles.length - 1].getAngle() + ANGLE,
+        START_SIZE,
+      ),
+    );
   });
 
   const lastTriangle = triangles[triangles.length - 1];
@@ -54,9 +55,8 @@ function draw() {
       x = mouseX;
       y = mouseY;
     }
-    triangles.push(new Triangle(x, y, lastTriangle.getAngle() + 6, START_SIZE));
+    triangles.push(new Triangle(createVector(x, y), lastTriangle.getAngle() + ANGLE, START_SIZE));
   }
-  console.log(triangles);
 }
 
 function mouseMoved() {

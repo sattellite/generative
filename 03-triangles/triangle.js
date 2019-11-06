@@ -1,18 +1,14 @@
 let PI_2 = Math.PI * 2;
 
 class Triangle {
-  constructor(x, y, angle, size = 0, color = {}) {
-    this.pos = {
-      x: x,
-      y: y,
-    };
+  constructor(pos, angle, size = 0, color = {}) {
+    this.pos = pos;
     this.size = size;
     this.angle = angle;
     this.color = {};
     this.color.r = color.r || 50;
     this.color.g = color.g || 180;
     this.color.b = color.b || 240;
-    console.log(this.pos.x, this.pos.y);
   }
   setSize(s) {
     this.size = s;
