@@ -2,7 +2,7 @@ const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 const MAX_SIZE = Math.max(WIDTH, HEIGHT) * 2;
 const GROW = 45;
-const ANGLE = 6;
+const ANGLE = 12;
 const START_SIZE = 0.7;
 
 let triangles = [];
