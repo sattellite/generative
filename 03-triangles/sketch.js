@@ -32,7 +32,6 @@ function draw() {
   }
 
   toRemove.forEach(() => {
-    triangles.shift();
     let x = WIDTH / 2;
     let y = HEIGHT / 2;
     if (useMouseCoordinates) {
@@ -46,6 +45,7 @@ function draw() {
         START_SIZE,
       ),
     );
+    triangles.shift();
   });
 
   const lastTriangle = triangles[triangles.length - 1];
