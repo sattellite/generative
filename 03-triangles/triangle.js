@@ -1,10 +1,13 @@
 let PI_2 = Math.PI * 2;
 
 class Triangle {
-  constructor(pos, center, angle, size = 0) {
+  constructor(pos, center, angle, size = 0, grow) {
     this.pos = pos;
     this.size = size;
     this.angle = angle;
+    this.center = center;
+    this.grow = grow;
+    this.centerDevider = grow * 3;
   }
   setSize(s) {
     this.size = s;
@@ -35,8 +38,13 @@ class Triangle {
     triangle(x1, y1, x2, y2, x3, y3);
   }
   update(s = 0) {
-    this.size += s;
+    this.size += this.size / this.grow;
     this.angle++;
+    this.stepToCenter();
+  }
+  stepToCenter() {
+    this.pos.x += (this.center.x - this.pos.x) / this.centerDevider;
+    this.pos.y += (this.center.y - this.pos.y) / this.centerDevider;
   }
   _getRadian(a) {
     return (PI_2 / 360) * (this.angle + a);
