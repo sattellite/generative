@@ -51,7 +51,7 @@ function draw() {
     });
 
     const lastTriangle = triangles[triangles.length - 1];
-    if (lastTriangle.getSize() != START_SIZE && lastTriangle.getSize() < 1) {
+    if (lastTriangle.getSize() != START_SIZE && lastTriangle.getSize() < START_SIZE * 2) {
       let x = WIDTH / 2;
       let y = HEIGHT / 2;
       if (useMouseCoordinates) {
