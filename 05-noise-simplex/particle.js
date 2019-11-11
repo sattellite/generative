@@ -1,14 +1,18 @@
 class Particle {
-  constructor(x, y) {
+  constructor(x, y, simplex, scale) {
     this.dir = createVector(0, 0);
     this.vel = createVector(0, 0);
     this.pos = createVector(x, y);
-    this.simplex = new SimplexNoise(x * y);
+    this.simplex = simplex;
+    this.scale = scale;
     this.speed = 0.4;
   }
 
   move() {
-    const angle = noise(this.pos.x / noiseScale, this.pos.y / noiseScale) * TWO_PI * noiseScale;
+    const angle =
+      this.simplex.noise2D(this.pos.x / this.scale, this.pos.y / this.scale) *
+      TWO_PI *
+      this.scale;
     this.dir.x = cos(angle);
     this.dir.y = sin(angle);
     this.vel = this.dir.copy();
@@ -18,8 +22,8 @@ class Particle {
 
   checkEdge() {
     if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0) {
-      this.pos.x = random(50, width);
-      this.pos.y = random(50, height);
+      this.pos.x = random(0, width);
+      this.pos.y = random(0, height);
     }
   }
 
@@ -28,6 +32,7 @@ class Particle {
   }
 
   update(dir) {
+    // console.log(dir);
     this.dir = dir;
   }
 }
