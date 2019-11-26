@@ -1,16 +1,21 @@
 // From here https://youtu.be/0jjeOYMjmDU
 let angle, step;
 function setup() {
-  angle = random(3.14159265358979323846 / 3, 3.14159265358979323846 / 4);
-  step = random(0.5, 0.75);
   console.log({ angle, step });
   createCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+  angle = random(3.14159265358979323846 / 3, 3.14159265358979323846 / 4);
+  step = random(0.5, 0.75);
+  clear();
   background(0);
   stroke(255);
   push();
   translate(windowWidth / 2, windowHeight);
   branch(windowHeight / 4);
   pop();
+  noLoop();
 }
 
 function branch(len) {
@@ -34,5 +39,5 @@ function branch(len) {
 }
 
 function mouseClicked() {
-  setup();
+  draw();
 }
