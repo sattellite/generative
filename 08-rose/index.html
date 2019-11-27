@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Попытки создания сгенерированных картин</title>
+    <title>Rose</title>
 
     <meta name="description" content="Это называют generative art, хотя от искусства тут ничего и нет. Просто код.">
     <link rel="canonical" href="https://lab.sattellite.me/generative/">
@@ -28,65 +28,22 @@
     <meta name="twitter:creator" content="@_sattellite">
 
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+      }
       body {
-        display: flex;
+        display:flex;
         justify-content: center;
         align-items: center;
-        font-family: monospace;
-      }
-      time {
-        opacity: 0.5;
-      }
-      ol {
-        list-style: decimal-leading-zero;
-      }
-      .wrapper {
-        width: 420px;
-        height: auto;
-        padding: 1em;
       }
     </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js" integrity="sha256-WVsM3xrcqyuFNF3W1qtIKbHFsD0977nDQA8DCMp1zCw=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Attempts</h1>
-      <nav>
-        <a href="/">Main page</a>
-      </nav>
-      <ol reversed>
-        <li>
-          <time>2019-11-27</time>
-          <a href="08-rose">p5js :: rose</a>
-        </li>
-        <li>
-          <time>2019-11-19</time>
-          <a href="07-fractal-tree">p5js :: fractal tree</a>
-        </li>
-        <li>
-          <time>2019-11-11</time>
-          <a href="06-voronoi">p5js :: worley noise(voronoi)</a>
-        </li>
-        <li>
-          <time>2019-11-07</time>
-          <a href="05-noise-simplex">p5js :: simplex noise</a>
-        </li>
-        <li>
-          <time>2019-11-07</time>
-          <a href="04-noise-perlin">p5js :: perlin noise</a>
-        </li>
-        <li>
-          <time>2019-11-07</time>
-          <a href="03-triangles">p5js :: triangles</a>
-        </li>
-        <li>
-          <time>2019-11-04</time>
-          <a href="02-regular-squares">p5js :: regular squares</a>
-        </li>
-        <li>
-          <time>2019-11-03</time>
-          <a href="01-squares">p5js :: squares</a>
-        </li>
-      </ol>
-    </div>
+    <script src="sketch.js"></script>
   </body>
 </html>
