@@ -40,9 +40,23 @@
       align-items: center;
       background-color: #f6f5f3;
     }
+    .popup {
+      position: absolute;
+      z-index: 1;
+      color: #fff;
+      background-color: rgba(130,130,130,.75);
+      width: auto;
+      height: auto;
+      padding: 10px;
+      top: 20px;
+      border-radius: 3px;
+      user-select: none;
+      pointer-events: none;
+    }
     </style>
   </head>
   <body>
-      <script src="sketch.js"></script>
+    <div class="popup">Click on screen to start animation. Reload page to renew image.</div>
+    <script src="sketch.js"></script>
   </body>
 </html>
